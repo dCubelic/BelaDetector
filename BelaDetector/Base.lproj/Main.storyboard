@@ -43,6 +43,24 @@
                                     <constraint firstAttribute="height" constant="60" id="6F9-B9-jif"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZr-mR-Q0f">
+                                <rect key="frame" x="176.5" y="756.5" width="61" height="29"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BETA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yt1-7g-mzG">
+                                        <rect key="frame" x="8" y="4" width="45" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="yt1-7g-mzG" secondAttribute="bottom" constant="4" id="ShX-H8-cpa"/>
+                                    <constraint firstItem="yt1-7g-mzG" firstAttribute="top" secondItem="JZr-mR-Q0f" secondAttribute="top" constant="4" id="b8X-ie-3gn"/>
+                                    <constraint firstItem="yt1-7g-mzG" firstAttribute="leading" secondItem="JZr-mR-Q0f" secondAttribute="leading" constant="8" id="hHv-Ua-RBY"/>
+                                    <constraint firstAttribute="trailing" secondItem="yt1-7g-mzG" secondAttribute="trailing" constant="8" id="plX-df-neM"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MN5-Sy-7C6">
                                 <rect key="frame" x="16" y="52" width="45" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -101,6 +119,8 @@
                             <constraint firstItem="Gje-ED-L5q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="Plz-UF-fHT"/>
                             <constraint firstItem="WL4-M6-mbO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Qk7-fM-w30"/>
                             <constraint firstItem="WL4-M6-mbO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Vcg-Se-Z8u"/>
+                            <constraint firstItem="JZr-mR-Q0f" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="acv-mm-G7F"/>
+                            <constraint firstItem="JZr-mR-Q0f" firstAttribute="centerY" secondItem="Kdh-wk-Yjr" secondAttribute="centerY" id="dAK-BP-fv5"/>
                             <constraint firstItem="MN5-Sy-7C6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="dbd-XI-8he"/>
                             <constraint firstItem="MN5-Sy-7C6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="dsf-Jd-oF0"/>
                             <constraint firstItem="fRI-oN-NUB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="jwW-Wh-ebd"/>
@@ -110,6 +130,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="betaView" destination="JZr-mR-Q0f" id="864-Il-Dny"/>
                         <outlet property="closeButton" destination="MN5-Sy-7C6" id="KkU-cR-FWI"/>
                         <outlet property="detectedCardsView" destination="fRI-oN-NUB" id="GGR-IJ-Ilc"/>
                         <outlet property="doneButton" destination="2PL-a6-W6C" id="YiB-Nq-K7b"/>

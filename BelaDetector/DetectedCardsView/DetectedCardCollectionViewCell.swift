@@ -20,6 +20,6 @@ class DetectedCardCollectionViewCell: UICollectionViewCell {
 
     func setup(for card: BelaCard) {
         valueLabel.text = card.value.string
-        suitImageView.image = UIImage(named: card.suit.imageName)
+        suitImageView.image = UIImage(named: card.suit.imageName, in: Bundle.frameworkBundle, compatibleWith: nil)
     }
 }

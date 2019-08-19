@@ -21,6 +21,7 @@ public class BelaDetectorViewController: UIViewController {
     @IBOutlet private weak var resetButton: UIButton!
     @IBOutlet private weak var doneButton: UIButton!
     @IBOutlet private weak var plusTenButton: UIButton!
+    @IBOutlet private weak var betaView: UIView!
     
     private var resizedPixelBufffer: CVPixelBuffer?
     private let ciContext = CIContext()
@@ -48,6 +49,7 @@ public class BelaDetectorViewController: UIViewController {
         resetButton.layer.cornerRadius = resetButton.frame.height / 2
         doneButton.layer.cornerRadius = doneButton.frame.height / 2
         plusTenButton.layer.cornerRadius = plusTenButton.frame.height / 2
+        betaView.layer.cornerRadius = betaView.frame.height / 2
         
         detectedCardsView.delegate = self
         detectedCardsView.set(trumpSuit: .hearts)

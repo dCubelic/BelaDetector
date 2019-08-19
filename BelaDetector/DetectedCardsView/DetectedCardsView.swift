@@ -86,7 +86,7 @@ class DetectedCardsView: UIView {
     
     func set(trumpSuit: BelaSuit) {
         self.trumpSuit = trumpSuit
-        trumpSuitImageView.image = UIImage(named: trumpSuit.imageName)
+        trumpSuitImageView.image = UIImage(named: trumpSuit.imageName, in: Bundle.frameworkBundle, compatibleWith: nil)
     }
     
     func add(card: BelaCard) {
