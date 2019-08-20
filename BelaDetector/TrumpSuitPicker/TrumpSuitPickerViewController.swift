@@ -22,19 +22,19 @@ class TrumpSuitPickerViewController: UIViewController {
         view.layer.cornerRadius = 30
     }
 
-    @IBAction func heartsAction(_ sender: Any) {
+    @IBAction private func heartsAction(_ sender: Any) {
         delegate?.trumpSuitPickerViewControllerDidChoose(trumpSuitPickerViewController: self, trumpSuit: .hearts)
     }
     
-    @IBAction func diamondsAction(_ sender: Any) {
+    @IBAction private func diamondsAction(_ sender: Any) {
         delegate?.trumpSuitPickerViewControllerDidChoose(trumpSuitPickerViewController: self, trumpSuit: .diamonds)
     }
     
-    @IBAction func spadesAction(_ sender: Any) {
+    @IBAction private func spadesAction(_ sender: Any) {
         delegate?.trumpSuitPickerViewControllerDidChoose(trumpSuitPickerViewController: self, trumpSuit: .spades)
     }
     
-    @IBAction func clubsAction(_ sender: Any) {
+    @IBAction private func clubsAction(_ sender: Any) {
         delegate?.trumpSuitPickerViewControllerDidChoose(trumpSuitPickerViewController: self, trumpSuit: .clubs)
     }
 }

@@ -44,4 +44,5 @@ class ResilienceArray<T: Hashable> {
     func numberOfOccurences(item: T) -> Int {
         return dictionary[item] ?? 0
     }
+    
 }

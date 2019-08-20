@@ -20,8 +20,8 @@ class BelaModel {
     func predict(image: CVPixelBuffer) -> [BelaPrediction] {
         guard let prediction = try? model.prediction(input_1: image) else { return [] }
         
-//        return computeBoundigBoxes(features: [prediction.conv2d_10, prediction.conv2d_13]) // za veci model
-        return computeBoundigBoxes(features: [prediction.conv2d_11, prediction.conv2d_8]) // za manji model
+//        return computeBoundigBoxes(features: [prediction.conv2d_10, prediction.conv2d_13]) // old model
+        return computeBoundigBoxes(features: [prediction.conv2d_11, prediction.conv2d_8]) // smaller model
     }
     
     private func computeBoundigBoxes(features: [MLMultiArray]) -> [BelaPrediction] {
@@ -52,7 +52,7 @@ class BelaModel {
                 for cx in 0..<gridWidth[i] {
                     for b in 0..<boxesPerCell {
                         let channel = b * (numClasses + 5)
-// Bounding box stuff
+// Bounding box stuff, not used
 //                        let tx = Float(featurePointer[offset(channel, cx, cy)])
 //                        let ty = Float(featurePointer[offset(channel + 1, cx, cy)])
 //                        let tw = Float(featurePointer[offset(channel + 2, cx, cy)])

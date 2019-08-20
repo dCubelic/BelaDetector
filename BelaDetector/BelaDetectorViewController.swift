@@ -29,7 +29,7 @@ public class BelaDetectorViewController: UIViewController {
     private let semaphore = DispatchSemaphore(value: 2)
     private let detectorModel = BelaModel()
     private var cardSet: Set<BelaCard> = Set()
-    private var resilienceArray = ResilienceArray<BelaCard>(size: 7 )
+    private var resilienceArray = ResilienceArray<BelaCard>(size: 7)
     private var trumpSuitPicker: TrumpSuitPickerViewController?
     
     public weak var delegate: BelaDetectorViewControllerDelegate?
@@ -54,8 +54,8 @@ public class BelaDetectorViewController: UIViewController {
         detectedCardsView.delegate = self
         detectedCardsView.set(trumpSuit: .hearts)
         
+        // For Fastlane screenshots
         #if targetEnvironment(simulator)
-        print("simulator")
         let imageView = UIImageView(frame: view.bounds)
         imageView.image = UIImage(named: "mock", in: Bundle.frameworkBundle, compatibleWith: nil)
         imageView.contentMode = .scaleAspectFill
@@ -121,9 +121,9 @@ public class BelaDetectorViewController: UIViewController {
         resilienceArray.add(items: predictions.map { $0.card })
 
         for prediction in predictions {
-            if resilienceArray.numberOfOccurences(item: prediction.card) >= 5 { // ako je dobro prepoznata
+            if resilienceArray.numberOfOccurences(item: prediction.card) >= 5 { // if recognized correctly
                 let (inserted, _) = cardSet.insert(prediction.card)
-                if inserted { // ako je prvi put videna
+                if inserted { // if seen first time
                     detectedCardsView.add(card: prediction.card)
                 }
             }
@@ -140,23 +140,23 @@ public class BelaDetectorViewController: UIViewController {
         return score
     }
 
-    @IBAction func closeAction(_ sender: Any) {
+    @IBAction private func closeAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func resetAction(_ sender: Any) {
+    @IBAction private func resetAction(_ sender: Any) {
         cardSet.removeAll(keepingCapacity: true)
         plusTenButton.setTitle("+10", for: .normal)
         detectedCardsView.reset()
         showTrumpSuitPicker()
     }
     
-    @IBAction func doneAction(_ sender: Any) {
+    @IBAction private func doneAction(_ sender: Any) {
         delegate?.belaDetectorViewControllerDidFinishScanning(self, points: detectedCardsView.points)
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func plusTenAction(_ sender: Any) {
+    @IBAction private func plusTenAction(_ sender: Any) {
         detectedCardsView.plusTen.toggle()
         plusTenButton.setTitle(detectedCardsView.plusTen ? "-10" : "+10", for: .normal)
     }

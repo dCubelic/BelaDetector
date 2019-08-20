@@ -15,10 +15,10 @@ protocol DetectedCardsViewDelegate: class {
 
 class DetectedCardsView: UIView {
 
-    @IBOutlet weak var trumpSuitImageView: UIImageView!
-    @IBOutlet weak var pointsLabel: UILabel!
-    @IBOutlet weak var splitLineView: UIView!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak private var trumpSuitImageView: UIImageView!
+    @IBOutlet weak private var pointsLabel: UILabel!
+    @IBOutlet weak private var splitLineView: UIView!
+    @IBOutlet weak private var collectionView: UICollectionView!
     
     public var points: Int = 0 {
         didSet {
@@ -109,7 +109,7 @@ class DetectedCardsView: UIView {
         collectionView.reloadData()
     }
     
-    @IBAction func trumpSuitAction(_ sender: Any) {
+    @IBAction private func trumpSuitAction(_ sender: Any) {
         delegate?.detectedCardsViewDidRequestTrumpSuitChange(self)
     }
 }

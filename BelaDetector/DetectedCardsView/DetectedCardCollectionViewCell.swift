@@ -10,8 +10,8 @@ import UIKit
 
 class DetectedCardCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var valueLabel: UILabel!
-    @IBOutlet weak var suitImageView: UIImageView!
+    @IBOutlet weak private var valueLabel: UILabel!
+    @IBOutlet weak private var suitImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
