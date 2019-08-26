@@ -148,6 +148,7 @@ public class BelaDetectorViewController: UIViewController {
     }
 
     @IBAction private func closeAction(_ sender: Any) {
+        videoCapture.turnTorch(on: false)
         dismiss(animated: true, completion: nil)
     }
     
@@ -159,6 +160,7 @@ public class BelaDetectorViewController: UIViewController {
     }
     
     @IBAction private func doneAction(_ sender: Any) {
+        videoCapture.turnTorch(on: false)
         delegate?.belaDetectorViewControllerDidFinishScanning(self, points: detectedCardsView.points)
         dismiss(animated: true, completion: nil)
     }
@@ -169,8 +171,8 @@ public class BelaDetectorViewController: UIViewController {
     }
     
     @IBAction private func flashlightAction(_ sender: Any) {
-        videoCapture.toggleFlash()
         flashOn.toggle()
+        videoCapture.turnTorch(on: flashOn)
     }
 }
 

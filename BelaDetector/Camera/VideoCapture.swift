@@ -86,25 +86,20 @@ class VideoCapture: NSObject {
         }
     }
     
-    func toggleFlash() {
-        guard let device = AVCaptureDevice.default(for: AVMediaType.video) else { return }
-        guard device.hasTorch else { return }
+    func turnTorch(on shouldTurnOn: Bool) {
+        guard let device = AVCaptureDevice.default(for: .video), device.hasTorch else { return }
         
         do {
             try device.lockForConfiguration()
             
-            if (device.torchMode == AVCaptureDevice.TorchMode.on) {
-                device.torchMode = AVCaptureDevice.TorchMode.off
+            if shouldTurnOn {
+                try device.setTorchModeOn(level: 1.0)
             } else {
-                do {
-                    try device.setTorchModeOn(level: 1.0)
-                } catch {
-                    print(error)
-                }
+                device.torchMode = .off
             }
             
             device.unlockForConfiguration()
-        } catch {
+        } catch let error {
             print(error)
         }
     }
