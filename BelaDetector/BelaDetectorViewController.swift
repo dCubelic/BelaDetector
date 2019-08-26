@@ -22,6 +22,7 @@ public class BelaDetectorViewController: UIViewController {
     @IBOutlet private weak var doneButton: UIButton!
     @IBOutlet private weak var plusTenButton: UIButton!
     @IBOutlet private weak var betaView: UIView!
+    @IBOutlet private weak var flashlightButton: UIButton!
     
     private var resizedPixelBufffer: CVPixelBuffer?
     private let ciContext = CIContext()
@@ -31,6 +32,11 @@ public class BelaDetectorViewController: UIViewController {
     private var cardSet: Set<BelaCard> = Set()
     private var resilienceArray = ResilienceArray<BelaCard>(size: 7)
     private var trumpSuitPicker: TrumpSuitPickerViewController?
+    private var flashOn = false {
+        didSet {
+            flashlightButton.setImage(UIImage(named: flashOn ? "flashlight-on" : "flashlight-off", in: Bundle.frameworkBundle, compatibleWith: nil), for: .normal)
+        }
+    }
     
     public weak var delegate: BelaDetectorViewControllerDelegate?
     
@@ -50,6 +56,7 @@ public class BelaDetectorViewController: UIViewController {
         doneButton.layer.cornerRadius = doneButton.frame.height / 2
         plusTenButton.layer.cornerRadius = plusTenButton.frame.height / 2
         betaView.layer.cornerRadius = betaView.frame.height / 2
+        flashlightButton.layer.cornerRadius = flashlightButton.frame.height / 2
         
         detectedCardsView.delegate = self
         detectedCardsView.set(trumpSuit: .hearts)
@@ -161,6 +168,10 @@ public class BelaDetectorViewController: UIViewController {
         plusTenButton.setTitle(detectedCardsView.plusTen ? "-10" : "+10", for: .normal)
     }
     
+    @IBAction private func flashlightAction(_ sender: Any) {
+        videoCapture.toggleFlash()
+        flashOn.toggle()
+    }
 }
 
 extension BelaDetectorViewController: VideoCaptureDelegate {

@@ -91,6 +91,21 @@
                                     <action selector="doneAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="43z-X7-Cad"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKL-oj-O39">
+                                <rect key="frame" x="69" y="52" width="30" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="7Lq-Tw-tXl"/>
+                                    <constraint firstAttribute="width" constant="30" id="AiQ-hF-DTg"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="flashlight-off">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="flashlightAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jOa-PA-rW8"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gje-ED-L5q">
                                 <rect key="frame" x="245" y="52" width="80" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -111,10 +126,12 @@
                         <constraints>
                             <constraint firstItem="WL4-M6-mbO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0l7-bO-4Tm"/>
                             <constraint firstItem="2PL-a6-W6C" firstAttribute="leading" secondItem="Gje-ED-L5q" secondAttribute="trailing" constant="8" id="0p2-cK-hko"/>
+                            <constraint firstItem="IKL-oj-O39" firstAttribute="centerY" secondItem="MN5-Sy-7C6" secondAttribute="centerY" id="2zv-CP-iqo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2PL-a6-W6C" secondAttribute="trailing" constant="16" id="3fp-yC-5ty"/>
                             <constraint firstItem="fRI-oN-NUB" firstAttribute="top" secondItem="Kdh-wk-Yjr" secondAttribute="bottom" constant="8" id="4hk-Qx-5VC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fRI-oN-NUB" secondAttribute="bottom" constant="8" id="72R-rz-vBU"/>
                             <constraint firstItem="Kdh-wk-Yjr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="7xt-hU-nL2"/>
+                            <constraint firstItem="IKL-oj-O39" firstAttribute="leading" secondItem="MN5-Sy-7C6" secondAttribute="trailing" constant="8" id="92L-cz-sBk"/>
                             <constraint firstAttribute="bottom" secondItem="WL4-M6-mbO" secondAttribute="bottom" id="9fU-lc-OxS"/>
                             <constraint firstItem="Gje-ED-L5q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="Plz-UF-fHT"/>
                             <constraint firstItem="WL4-M6-mbO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Qk7-fM-w30"/>
@@ -134,6 +151,7 @@
                         <outlet property="closeButton" destination="MN5-Sy-7C6" id="KkU-cR-FWI"/>
                         <outlet property="detectedCardsView" destination="fRI-oN-NUB" id="GGR-IJ-Ilc"/>
                         <outlet property="doneButton" destination="2PL-a6-W6C" id="YiB-Nq-K7b"/>
+                        <outlet property="flashlightButton" destination="IKL-oj-O39" id="5HH-Sl-NeO"/>
                         <outlet property="plusTenButton" destination="Kdh-wk-Yjr" id="ysC-4J-43q"/>
                         <outlet property="resetButton" destination="Gje-ED-L5q" id="iFM-Qw-5Vh"/>
                         <outlet property="videoPreview" destination="WL4-M6-mbO" id="blt-CW-Jcp"/>
@@ -232,6 +250,7 @@
         <image name="close" width="26" height="26"/>
         <image name="clubs" width="158.5" height="246.5"/>
         <image name="diamonds" width="215.5" height="225.5"/>
+        <image name="flashlight-off" width="25" height="25"/>
         <image name="hearts" width="243.5" height="236.5"/>
         <image name="spades" width="215.5" height="252"/>
     </resources>
