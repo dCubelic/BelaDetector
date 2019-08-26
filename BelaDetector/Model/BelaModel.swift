@@ -52,19 +52,19 @@ class BelaModel {
                 for cx in 0..<gridWidth[i] {
                     for b in 0..<boxesPerCell {
                         let channel = b * (numClasses + 5)
-// Bounding box stuff, not used
-//                        let tx = Float(featurePointer[offset(channel, cx, cy)])
-//                        let ty = Float(featurePointer[offset(channel + 1, cx, cy)])
-//                        let tw = Float(featurePointer[offset(channel + 2, cx, cy)])
-//                        let th = Float(featurePointer[offset(channel + 3, cx, cy)])
+
+                        let tx = Float(featurePointer[offset(channel, cx, cy)])
+                        let ty = Float(featurePointer[offset(channel + 1, cx, cy)])
+                        let tw = Float(featurePointer[offset(channel + 2, cx, cy)])
+                        let th = Float(featurePointer[offset(channel + 3, cx, cy)])
                         let tc = Float(featurePointer[offset(channel + 4, cx, cy)])
 
-//                        let scale = powf(2.0, Float(i))
-//                        let x = (Float(cx) * blockSize + sigmoid(tx))/scale
-//                        let y = (Float(cy) * blockSize + sigmoid(ty))/scale
-//
-//                        let w = exp(tw) * anchors[i][2*b]
-//                        let h = exp(th) * anchors[i][2*b + 1]
+                        let scale = powf(2.0, Float(i))
+                        let x = (Float(cx) * blockSize + sigmoid(tx)) / scale
+                        let y = (Float(cy) * blockSize + sigmoid(ty)) / scale
+
+                        let w = exp(tw) * anchors[i][2 * b]
+                        let h = exp(th) * anchors[i][2 * b + 1]
                         
                         let confidence = sigmoid(tc)
                         
@@ -79,8 +79,8 @@ class BelaModel {
                         let confidenceInClass = bestClassScore * confidence
                         
                         if confidenceInClass > confidenceThreshold {
-//                            let rect = CGRect(x: CGFloat(x - w/2), y: CGFloat(y - h/2), width: CGFloat(w), height: CGFloat(h))
-                            let prediction = BelaPrediction(classIndex: detectedClass, confidence: confidenceInClass)
+                            let rect = CGRect(x: CGFloat(x - w / 2), y: CGFloat(y - h / 2), width: CGFloat(w), height: CGFloat(h))
+                            let prediction = BelaPrediction(classIndex: detectedClass, confidence: confidenceInClass, rect: rect)
                             predictions.append(prediction)
                         }
                     }
@@ -88,6 +88,6 @@ class BelaModel {
             }
         }
         
-        return predictions
+        return nonMaxSuppression(boxes: predictions, limit: 10, threshold: 0.9)
     }
 }
