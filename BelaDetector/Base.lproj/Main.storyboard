@@ -145,6 +145,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fRI-oN-NUB" secondAttribute="trailing" constant="16" id="vMz-JF-cyP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="JZr-mR-Q0f"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="betaView" destination="JZr-mR-Q0f" id="864-Il-Dny"/>
@@ -250,7 +255,7 @@
         <image name="close" width="26" height="26"/>
         <image name="clubs" width="158.5" height="246.5"/>
         <image name="diamonds" width="215.5" height="225.5"/>
-        <image name="flashlight-off" width="25" height="25"/>
+        <image name="flashlight-off" width="20" height="20"/>
         <image name="hearts" width="243.5" height="236.5"/>
         <image name="spades" width="215.5" height="252"/>
     </resources>
